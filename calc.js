@@ -4,6 +4,9 @@ let addAcc = document.getElementById("addAcc");
 addAcc.addEventListener("click", () => {
     cont++;
     let container = document.getElementById("accounts");
+    let col = document.createElement("div");
+    col.classList.add("col");
+    container.appendChild(col);
     let label = document.createElement("label");
     label.htmlFor = "acc" + cont;
     label.innerHTML = "Account " + cont + " characters";
@@ -13,12 +16,13 @@ addAcc.addEventListener("click", () => {
     input.name = "acc" + cont;
     input.id = "acc" + cont;
     input.classList.add("form-control-sm");
-    container.appendChild(label);
-    container.appendChild(input);
-    container.appendChild(document.createElement("br"));
+    col.appendChild(label);
+    col.appendChild(input);
 });
 
 let form = document.forms[0];
+
+// TODO delete accounts & reset
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
